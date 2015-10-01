@@ -1,0 +1,40 @@
+{
+  "name": "express-snapshot",
+  "version": "1.0.0",
+  "description": "Generate static HTML from Express app. Express app in, static `.html` out.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test --reporter dot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexmingoia/express-snapshot.git"
+  },
+  "bin": {
+    "express-snapshot": "index.js"
+  },
+  "keywords": [
+    "express",
+    "cache",
+    "static",
+    "snapshot",
+    "site",
+    "html"
+  ],
+  "author": "Alex Mingoia <talk@alexmingoia.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexmingoia/express-snapshot/issues"
+  },
+  "dependencies": {
+    "bluebird": "^2.10.1",
+    "commander": "^2.8.1",
+    "http-promise": "^0.1.2",
+    "mkdirp": "^0.5.1",
+    "progress": "^1.1.8",
+    "request": "^2.64.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
+}

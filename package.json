@@ -1,7 +1,7 @@
 {
   "name": "express-snapshot",
   "version": "1.0.0",
-  "description": "Generate static HTML from Express app. Express app in, static `.html` out.",
+  "description": "Generate static HTML from Express. Express app in, static `.html` out.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test --reporter dot"

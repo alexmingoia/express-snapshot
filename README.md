@@ -1,6 +1,6 @@
 # express-snapshot [![Build Status](https://img.shields.io/travis/alexmingoia/express-snapshot.svg?style=flat)](http://travis-ci.org/alexmingoia/express-snapshot)  [![NPM version](https://img.shields.io/npm/v/express-snapshot.svg?style=flat)](http://badge.fury.io/js/express-snapshot)
 
-> Generate static HTML from Express app. Express app in, static `.html` out.
+> Generate static HTML from Express. Express app in, static `.html` out.
 
 ## Installation
 
@@ -28,4 +28,4 @@ npm install --global express-snapshot
 The above will walk your app routes, requesting each one, and saving the HTML
 to a directory structure that mirrors your routes.
 
-![demo](http://i.imgur.com/RzSPHhS.gifv)
+![demo](http://i.imgur.com/RzSPHhS.gif)

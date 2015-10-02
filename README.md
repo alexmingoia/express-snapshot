@@ -11,21 +11,11 @@ npm install --global express-snapshot
 ## Usage
 
 ```javascript
-  Usage: express-snapshot [options] app.js
-
-
-  Commands:
-
-    *   snapshot the given <app>
-
-  Options:
-
-    -h, --help         output usage information
-    -V, --version      output the version number
-    -o,--output <dir>  specify the directory to save snapshot to
+express-snapshot app.js
 ```
 
-The above will walk your app routes, requesting each one, and saving the HTML
-to a directory structure that mirrors your routes.
+The above will walk routes registered by the app exported in `app.js`,
+requesting each one, and saving the HTML to a directory structure that mirrors
+your routes. See `express-snapshot --help` for more information.
 
 ![demo](http://i.imgur.com/RzSPHhS.gif)

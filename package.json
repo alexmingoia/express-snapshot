@@ -1,6 +1,6 @@
 {
   "name": "express-snapshot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate static HTML from Express. Express app in, static `.html` out.",
   "main": "index.js",
   "scripts": {

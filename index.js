@@ -47,7 +47,7 @@ function snapshot(app) {
 
       return mkdirp(folderpath(route, outputDir))
         .then(fetchHtml(route))
-        .then(returnHtml)
+        .then(returnResponse)
         .tap(function () {
           progress.tick(1, { status: 'writing ' + filepath(route, outputDir) });
         })
@@ -62,17 +62,25 @@ function snapshot(app) {
 
 function routes(app) {
   return app._router.stack.filter(function (layer) {
-    return layer.route && layer.route.path && !~layer.route.path.indexOf(':');
+    if (layer.route && ~layer.route.path.indexOf(':')) {
+      console.log('skipping', layer.route.path);
+    } else {
+      return layer.route;
+    }
   }).map(function (layer) {
     return layer.route;
   });
 }
 
 function filepath(route, outputDir) {
-  return outputDir + route.path.split('/').concat(['index.html']).join('/');
+  if (route.path.match(/\.[^\.]+$/)) return outputDir + route.path;
+  return outputDir + route.path.split('/').concat(['index.']).join('/');
 }
 
 function folderpath(route, outputDir) {
+  if (route.path.match(/\.[^\.]+$/)) {
+    return outputDir + route.path.split('/').slice(0, -1).join('/');
+  }
   return outputDir + route.path;
 }
 
@@ -82,12 +90,14 @@ function fetchHtml(route) {
   }
 }
 
-function returnHtml(res) {
-  return res[1];
+function returnResponse(res) {
+  return res[0];
 }
 
 function writeHtml(filepath) {
-  return function (html) {
-    return write(filepath, html);
+  return function (response) {
+    var contentType = response.headers['content-type'];
+    var ext = contentType.split(';')[0].split(/\/|\+/).pop() || 'html';
+    return write(filepath + ext, response.body);
   };
 }

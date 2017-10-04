@@ -62,7 +62,7 @@ function snapshot(app) {
 
 function routes(app) {
   return app._router.stack.filter(function (layer) {
-    if (layer.route && ~layer.route.path.indexOf(':')) {
+    if (layer.route && (~layer.route.path.indexOf(':') || ~layer.route.path.indexOf('*'))) {
       console.log('skipping', layer.route.path);
     } else {
       return layer.route;
